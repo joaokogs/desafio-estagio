@@ -1,49 +1,27 @@
 package router
 
 import (
-	"net/http"
-
 	"github.com/gin-gonic/gin"
+	"github.com/joaokogs/desafio-estagio/handler"
 )
 
 func InitRoutes(router *gin.Engine) {
 	v1 := router.Group("/api/v1")
 	{
-		//func(ctx *gin.Context) como se fosse a função anonima do js
 		//Info da missao
-		v1.GET("/missao", func(ctx *gin.Context) {
-			ctx.JSON(http.StatusOK, gin.H{
-				"nome": "Missão 1",
-			})
-		})
+		v1.GET("/missao", handler.MostrarMissao)
 
 		//Cria missões
-		v1.POST("/missao", func(ctx *gin.Context) {
-			ctx.JSON(http.StatusOK, gin.H{
-				"nome": "Missão 1",
-			})
-		})
+		v1.POST("/missao", handler.CriarMissao)
 
 		//Deleta uma missão
-		v1.DELETE("/missao", func(ctx *gin.Context) {
-			ctx.JSON(http.StatusOK, gin.H{
-				"nome": "Missão 1",
-			})
-		})
+		v1.DELETE("/missao", handler.DeletarMissao)
 
 		//Edita uma missão
-		v1.PUT("/missao", func(ctx *gin.Context) {
-			ctx.JSON(http.StatusOK, gin.H{
-				"nome": "Missão 1",
-			})
-		})
+		v1.PUT("/missao", handler.AtualizarMissao)
 
 		//Lista todas as missões
-		v1.GET("/missoes", func(ctx *gin.Context) {
-			ctx.JSON(http.StatusOK, gin.H{
-				"lista": "Missões",
-			})
-		})
+		v1.GET("/missoes", handler.ListarMissoes)
 
 	}
 }
