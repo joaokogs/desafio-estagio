@@ -35,3 +35,20 @@ func (r *CreateMissionRequest) Validate() error {
 	}
 	return nil
 }
+
+// Update Mission
+
+type UpdateMissionRequest struct {
+	Name        string  `json: "name"`
+	Description string  `json: "description"`
+	Difficulty  string  `json: "difficulty"`
+	Reward      float32 `json: "reward"`
+}
+
+func (r *UpdateMissionRequest) Validade() error{
+	if r.Name != ""||r.Description != "" || r.Difficulty != "" || r.Reward > 0{
+		return nil
+	}
+
+	return fmt.Errorf("at least one valid field must be provided")
+}
