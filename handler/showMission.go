@@ -6,7 +6,7 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-func ListarMissoes(ctx *gin.Context) {
+func ShowMission(ctx *gin.Context) {
 	ctx.JSON(http.StatusOK, gin.H{
 		"nome": "Missão 1",
 	})

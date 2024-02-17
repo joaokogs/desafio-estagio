@@ -2,26 +2,29 @@ package router
 
 import (
 	"github.com/gin-gonic/gin"
-	handler "github.com/joaokogs/desafio-estagio/handler/missao"
+	"github.com/joaokogs/desafio-estagio/handler"
 )
 
 func InitRoutes(router *gin.Engine) {
+
+	handler.InitHandler()
+
 	v1 := router.Group("/api/v1")
 	{
 		//Info da missao
-		v1.GET("/missao", handler.MostrarMissao)
+		v1.GET("/mission", handler.ShowMission)
 
 		//Cria missões
-		v1.POST("/missao", handler.CriarMissao)
+		v1.POST("/mission", handler.CreateMission)
 
 		//Deleta uma missão
-		v1.DELETE("/missao", handler.DeletarMissao)
+		v1.DELETE("/mission", handler.DeleteMission)
 
 		//Edita uma missão
-		v1.PUT("/missao", handler.AtualizarMissao)
+		v1.PUT("/mission", handler.UpdateMission)
 
 		//Lista todas as missões
-		v1.GET("/missoes", handler.ListarMissoes)
+		v1.GET("/missions", handler.ListMission)
 
 	}
 }

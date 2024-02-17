@@ -6,7 +6,7 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-func DeletarMissao(ctx *gin.Context) {
+func UpdateMission(ctx *gin.Context) {
 	ctx.JSON(http.StatusOK, gin.H{
 		"nome": "Missão 1",
 	})
