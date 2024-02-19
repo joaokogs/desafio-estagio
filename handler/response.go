@@ -5,6 +5,7 @@ import (
 	"net/http"
 
 	"github.com/gin-gonic/gin"
+	"github.com/joaokogs/desafio-estagio/schemas"
 )
 
 func sendError(ctx *gin.Context, code int, msg string) {
@@ -24,4 +25,32 @@ func sendSuccess(ctx *gin.Context, op string,data interface{}){
 		"data":data,
 		
 	})
+}
+
+type ErrorResponse struct{
+	Message string `json: "message"`
+	ErrorCode string `json : "errorCode"`
+
+}
+
+type CreateMissionResponse struct{
+	Message string `json : "message"`
+	Data schemas.MissionsOpening `json: "data"`
+}
+
+type DeleteMissionResponse struct {
+	Message string                  `json:"message"`
+	Data    schemas.MissionsOpening `json:"data"`
+}
+type ShowMissionResponse struct {
+	Message string                  `json:"message"`
+	Data    schemas.MissionsOpening `json:"data"`
+}
+type ListMissionsResponse struct {
+	Message string                    `json:"message"`
+	Data    []schemas.MissionsOpening `json:"data"`
+}
+type UpdateMissionResponse struct {
+	Message string                  `json:"message"`
+	Data    schemas.MissionsOpening `json:"data"`
 }

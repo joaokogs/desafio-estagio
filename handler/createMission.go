@@ -7,6 +7,20 @@ import (
 	"github.com/joaokogs/desafio-estagio/schemas"
 )
 
+// @BasePath /api/v1
+
+// @Summary Create mission
+// @Description Crie uma nova missão
+// @Tags Missions
+// @Accept json
+// @Produce json
+// @Param request body CreateMissionRequest true "Request body"
+// @Success 200 {object} CreateMissionResponse
+// @Failure 400 {object} ErrorResponse
+// @Failure 500 {object} ErrorResponse
+// @Router /mission [post]
+
+
 func CreateMission(ctx *gin.Context) {
 
 	request := CreateMissionRequest{}
